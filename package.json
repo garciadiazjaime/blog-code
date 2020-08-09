@@ -9,7 +9,10 @@
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "google:clean": "gsutil -m rm -r gs://blog.mintitmedia.com/*",
+    "google:upload": "gsutil -m cp -r ./__sapper__/export/* gs://blog.mintitmedia.com",
+    "deploy": "npm run google:clean && npm run google:upload"
   },
   "dependencies": {
     "compression": "^1.7.1",
